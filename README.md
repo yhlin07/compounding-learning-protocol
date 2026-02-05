@@ -140,14 +140,34 @@ A "recording-level" markdown document containing:
 
 **The result**: Every learning session leaves behind a "recording" you can return to.
 
+**Here's a real visual note from the REC file** (explaining how information loads in layers):
+
 ```
-Session 1          Session 2          Session 3
-    │                  │                  │
-    ▼                  ▼                  ▼
-┌───────┐          ┌───────┐          ┌───────┐
-│ REC 1 │    +     │ REC 2 │    +     │ REC 3 │    =    Compounding
-└───────┘          └───────┘          └───────┘
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   Level 1: Always loaded                                    │
+│   ┌───────────────────────────────────────────────────┐    │
+│   │  📛 name + 📝 description                         │    │
+│   └───────────────────────────────────────────────────┘    │
+│         │  ← Tiny, almost no space                          │
+│         ▼                                                   │
+│   Level 2: Load after trigger                               │
+│   ┌───────────────────────────────────────────────────┐    │
+│   │  📄 Full instructions (Step 1, 2, 3...)           │    │
+│   └───────────────────────────────────────────────────┘    │
+│         │  ← Medium size                                    │
+│         ▼                                                   │
+│   Level 3: Load only when asked                             │
+│   ┌───────────────────────────────────────────────────┐    │
+│   │  📁 references/ (detailed rules, large files)     │    │
+│   └───────────────────────────────────────────────────┘    │
+│                                                             │
+│   🎯 Don't dump the wine list on someone walking in.        │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
+
+This is what "Visual Notes" means: concepts become diagrams you can replay.
 
 → [Full protocol details](case-study/grind/README.md)
 
