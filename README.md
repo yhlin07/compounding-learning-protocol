@@ -140,31 +140,44 @@ A "recording-level" markdown document containing:
 
 **The result**: Every learning session leaves behind a "recording" you can return to.
 
-**Here's a real visual note from the REC file** (explaining how information loads in layers):
+**Here's a real visual note from the REC file** (explaining how parallel processing works):
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│   Level 1: Always loaded                                    │
-│   ┌───────────────────────────────────────────────────┐    │
-│   │  📛 name + 📝 description                         │    │
-│   └───────────────────────────────────────────────────┘    │
-│         │  ← Tiny, almost no space                          │
-│         ▼                                                   │
-│   Level 2: Load after trigger                               │
-│   ┌───────────────────────────────────────────────────┐    │
-│   │  📄 Full instructions (Step 1, 2, 3...)           │    │
-│   └───────────────────────────────────────────────────┘    │
-│         │  ← Medium size                                    │
-│         ▼                                                   │
-│   Level 3: Load only when asked                             │
-│   ┌───────────────────────────────────────────────────┐    │
-│   │  📁 references/ (detailed rules, large files)     │    │
-│   └───────────────────────────────────────────────────┘    │
-│                                                             │
-│   🎯 Don't dump the wine list on someone walking in.        │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+╔═══════════════════════════════════════════════════════════════════╗
+║  With Subagents (each has independent context)                    ║
+╠═══════════════════════════════════════════════════════════════════╣
+║                                                                   ║
+║         Main Agent                                                ║
+║         ┌──────────────────┐                                     ║
+║         │ Only responsible: │                                     ║
+║         │ • Assign tasks    │                                     ║
+║         │ • Collect results │                                     ║
+║         │ • Compile report  │                                     ║
+║         └────────┬─────────┘                                     ║
+║                  │                                                ║
+║    ┌─────────────┼─────────────┬─────────────┐                   ║
+║    ▼             ▼             ▼             ▼                   ║
+║ ┌──────┐    ┌──────┐     ┌──────┐     ┌──────┐                  ║
+║ │Sub 1 │    │Sub 2 │     │Sub 3 │     │ ...  │                  ║
+║ │──────│    │──────│     │──────│     │──────│                  ║
+║ │Task  │    │Task  │     │Task  │     │      │                  ║
+║ │1-25  │    │26-50 │     │51-75 │     │76-100│                  ║
+║ │      │    │      │     │      │     │      │                  ║
+║ │ 📄📄 │    │ 📄📄 │     │ 📄📄 │     │ 📄📄 │   ← Each has    ║
+║ │ 📄📄 │    │ 📄📄 │     │ 📄📄 │     │ 📄📄 │     own context ║
+║ └──┬───┘    └──┬───┘     └──┬───┘     └──┬───┘                  ║
+║    │           │            │            │                       ║
+║    │      (Run in parallel! Simultaneously)                      ║
+║    │           │            │            │                       ║
+║    └───────────┴────────────┴────────────┘                       ║
+║                       │                                           ║
+║                       ▼                                           ║
+║              ┌─────────────────┐                                 ║
+║              │  4 mini reports │                                 ║
+║              │  → Merge into 1 │                                 ║
+║              └─────────────────┘                                 ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
 ```
 
 This is what "Visual Notes" means: concepts become diagrams you can replay.
